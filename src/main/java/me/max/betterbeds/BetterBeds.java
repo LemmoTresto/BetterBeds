@@ -10,6 +10,21 @@ public final class BetterBeds extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+
+        try {
+            if (getConfig() == null || !getConfig().getBoolean("enable-bypass-permission")) {
+                getLogger().info("Reading and writing to config.");
+                getConfig().addDefault("enable-bypass-permission", true);
+                getConfig().options().copyDefaults(true);
+                saveDefaultConfig();
+            }
+        } catch (Exception e){
+            getLogger().severe("Reading and writing to config failed!");
+            e.printStackTrace();
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
+
         try {
             getLogger().info("Enabling listeners..");
             new PlayerBedEnterListener(this);
@@ -21,10 +36,5 @@ public final class BetterBeds extends JavaPlugin {
             e.printStackTrace();
             Bukkit.getPluginManager().disablePlugin(this);
         }
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
     }
 }

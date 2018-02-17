@@ -19,6 +19,7 @@ public class PlayerBedLeaveListener implements Listener{
 
     @EventHandler
     public void onBedExit(PlayerBedLeaveEvent event){
+        if (betterBeds.getConfig().getBoolean("enable-bypass-permission") && event.getPlayer().hasPermission("betterbeds.bypass")) return;
         event.getPlayer().removePotionEffect(PotionEffectType.REGENERATION);
         event.getPlayer().removePotionEffect(PotionEffectType.BLINDNESS);
         event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 10, 3, false, false));

@@ -20,6 +20,7 @@ public class PlayerBedEnterListener implements Listener {
     @EventHandler
     public void onPlayerBedJoin(PlayerBedEnterEvent event){
         if (event.isCancelled()) return;
+        if (betterBeds.getConfig().getBoolean("enable-bypass-permission") && event.getPlayer().hasPermission("betterbeds.bypass")) return;
         event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 999999, 999999, false, false));
         event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 999999, 1, false, false));
     }
