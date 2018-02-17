@@ -12,11 +12,11 @@ public final class BetterBeds extends JavaPlugin {
         // Plugin startup logic
 
         try {
-            if (getConfig() == null || !getConfig().getBoolean("enable-bypass-permission")) {
+            if (getConfig() == null || getConfig().isSet("enable-bypass-permission")) {
                 getLogger().info("Reading and writing to config.");
                 getConfig().addDefault("enable-bypass-permission", true);
                 getConfig().options().copyDefaults(true);
-                saveDefaultConfig();
+                saveConfig();
             }
         } catch (Exception e){
             getLogger().severe("Reading and writing to config failed!");
