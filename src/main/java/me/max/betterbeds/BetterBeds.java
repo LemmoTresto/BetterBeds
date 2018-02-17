@@ -33,6 +33,7 @@ public final class BetterBeds extends JavaPlugin {
     public void onEnable() {
         try {
             if (getConfig() == null || getConfig().isSet("enable-bypass-permission")) {
+                getDataFolder().mkdir();
                 getLogger().info("Reading and writing to config.");
                 getConfig().addDefault("enable-bypass-permission", true);
                 getConfig().options().copyDefaults(true);

@@ -45,8 +45,8 @@ public class PlayerBedLeaveListener implements Listener{
 
         event.getPlayer().removePotionEffect(PotionEffectType.REGENERATION);
         event.getPlayer().removePotionEffect(PotionEffectType.BLINDNESS);
-        event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 10, 3, false, false));
-        event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 10, 1, false, false));
+        event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 10 * 20, 3, false, false));
+        event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 10 * 20, 1, false, false));
         event.getPlayer().setBedSpawnLocation(null);
     }
 }
