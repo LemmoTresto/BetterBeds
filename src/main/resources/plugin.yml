@@ -1,3 +1,6 @@
 name: BetterBeds
 version: ${project.version}
 main: me.max.betterbeds.BetterBeds
+permissions:
+  betterbed.bypass:
+    description: Allows you to bypass the effects of sleeping.
