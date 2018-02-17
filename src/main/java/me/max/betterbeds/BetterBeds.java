@@ -9,8 +9,6 @@ public final class BetterBeds extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
         try {
             if (getConfig() == null || getConfig().isSet("enable-bypass-permission")) {
                 getLogger().info("Reading and writing to config.");
